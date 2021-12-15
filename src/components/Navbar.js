@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {Link} from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import {Button} from "./Button";
@@ -20,6 +20,10 @@ function Navbar() {
         }
     };
 
+    useEffect(() => {
+        showButton();
+    }, []);
+
     window.addEventListener('resize', showButton);
 
     return (
@@ -27,7 +31,7 @@ function Navbar() {
             <>
                 <nav className='navbar'>
                     <div className='navbar-container'>
-                        <Link to="/" className='navbar-logo'>
+                        <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
                             EShop <i className='bi bi-bag-check'></i>
                         </Link>
                         <div className='menu-icon' onClick={handleClick}>
@@ -49,8 +53,8 @@ function Navbar() {
                                     Products
                                 </Link>
                             </li>
-                            <li className='nav-item'>
-                                <Link to="/sign-up" className='nav-links' onClick={closeMobileMenu}>
+                            <li>
+                                <Link to="/sign-up" className='nav-links-mobile' onClick={closeMobileMenu}>
                                     Sign Up
                                 </Link>
                             </li>
