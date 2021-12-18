@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css"
 import {Button} from "./Button";
 import './Navbar.css';
+import Search from "./Search";
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -34,6 +35,7 @@ function Navbar() {
                         <Link to="/" className='navbar-logo' onClick={closeMobileMenu}>
                             EShop <i className='bi bi-bag-check'></i>
                         </Link>
+                        <Search/>
                         <div className='menu-icon' onClick={handleClick}>
                             <i className={click ? 'bi bi-x-lg' : 'bi bi-list'}></i>
                         </div>
@@ -60,6 +62,7 @@ function Navbar() {
                             </li>
                         </ul>
                         {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                        {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
                     </div>
                 </nav>
             </>
